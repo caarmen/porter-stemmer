@@ -17,10 +17,7 @@ To test out the library on the command-line:
 
 Using the library:
 -----------------
-The library is not yet available on jcenter. For now, it is available on bintray.
-Add the `http://dl.bintray.com/caarmen/maven` repository to your build file.
-
-To include the library in your project:
+The library is available on jcenter. To include the library in your project:
 
 maven:
 
