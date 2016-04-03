@@ -1,0 +1,24 @@
+group 'ca.rmen'
+version '1.0.0'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+// create a single Jar with all dependencies
+// http://www.mkyong.com/gradle/gradle-create-a-jar-file-with-dependencies/
+jar {
+    manifest {
+        attributes ('Implementation-Title': 'Porter Stemmer Cli',
+                'Implementation-Version': version,
+                'Main-Class': 'ca.rmen.porterstemmer.cli.PorterStemmerCli')
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+dependencies {
+    compile project(':library')
+}

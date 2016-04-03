@@ -1,0 +1,3 @@
+rootProject.name = 'porter-stemmer'
+include 'library','example'
+

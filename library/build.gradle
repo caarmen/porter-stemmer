@@ -1,0 +1,38 @@
+group 'ca.rmen'
+version '1.0.0'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+project.sourceCompatibility = 1.5
+project.targetCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+jar.baseName = 'porter-stemmer'
+install {
+    repositories.mavenInstaller {
+        pom.artifactId = 'porter-stemmer'
+    }
+}
