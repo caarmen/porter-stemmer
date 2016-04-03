@@ -17,7 +17,10 @@ To test out the library on the command-line:
 
 Using the library:
 -----------------
-The library is not yet available on jcenter. When it is available (soon), you may include it in your project:
+The library is not yet available on jcenter. For now, it is available on bintray.
+Add the `http://dl.bintray.com/caarmen/maven` repository to your build file.
+
+To include the library in your project:
 
 maven:
 
@@ -38,5 +41,5 @@ compile 'ca.rmen:porter-stemmer:1.0.0'
 To use the stemmer:
 ```java
 PorterStemmer porterStemmer = new PorterStemmer();
-porterStemmer.stemWord("incorporated"); // returns "incorpor"
+String stem = porterStemmer.stemWord("incorporated"); // returns "incorpor"
 ```
